@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   
+<style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+
+    body { 
+      background-color: lightgray;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input{
+  margin-top: 10px;
+  margin-right: 8px;
+  background-color: black;
+  color: white;
+
+}
+
+a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+a.c1 {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
+.w3-col{
+  margin-left: auto;
+  margin-right: auto;
+}
+.gallery{
+  height: 500px;
+  background-color: slategray;
+  background-image: url('https://thumbs.dreamstime.com/b/school-timetable-29307144.jpg');
+  color: black;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  
+
+}
+p{
+  color: black;
+}
+
+</style>
+</head>
+
+<body>
+    
+<div class="c1" style="margin-top: 10px;">
+
+      <button><a href="home" class="c1">TIME-TABLE</a></button>
+  
+     
+        <form action="/home" method="POST" >
+           
+
+            <input type="submit" name="Type" value="teacher" >
+            <!-- <input type="submit" name="Type" value="batch"> -->
+        
+            <input type="submit" name="Type" value="student" >
+            <input type="submit" name="Type" value="logout" >
+
+        </form>
+</div>
+   
+
+  <div class="c1" style="background-color: blue">
+
+    <!-- <!DOCTYPE html>
+    <html>
+    <body> -->
+
+    <!-- <h1>Pick a date</h1>
+
+    <form action="/home.ejs" method="POST">
+      
+      <label for="class">class:</label>
+      <input type="date" id="class" name="class">
+      <input type="submit">
+    </form> -->
+
+
+  </div>
+
+
+    <div style="margin-top: 100px; background-color: cadetblue; border: black; border-radius: inherit;">
+
+      <h1>classes</h1>
+
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Your type..">
+
+    <table id="myTable" border="1px" width="100%" height="auto">
+        <tr>
+            
+            <th>name</th>
+            <th>date</th>
+            <th>period</th>
+            
+          
+        </tr>
+
+
+        <%data.forEach((classes) => {%>
+
+            <tr>
+                <td>
+                    <%=classes.name%>
+                </td>
+                <td>
+                    <%=classes.date%>
+                </td>
+                <td>
+                    <%=classes.period%>
+                </td>
+                
+              
+            </tr>
+            <%})%>
+
+    </table>
+    <form action="/home" method="POST">
+
+      <!-- <input type="submit" name="Type" value="student" >
+      <input type="submit" name="Type" value="logout" > -->
+
+        <input class="input" type="submit" name="Type" value="REMOVE_CLASSES">
+        <input class="input" type="submit" name="Type" value="ADD_CLASSES">
+    </form>
+
+
+    </div>
+
+
+    
+    
+    <p style="text-align: center; font-size: 30px; padding-bottom: 3px;">Welcome</p>
+   
+  
+
+
+   
+  
+  </body>
+  </html>
+  

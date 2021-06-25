@@ -1,0 +1,105 @@
+<html>
+
+<head>
+    <title>teacher</title>
+    <style>
+        html {
+            background-image: linear-gradient(white, orange, lightgreen, white);
+            background-repeat: no-repeat;
+            font-size: 20px;
+            border-color: brown;
+        }
+        
+        td {
+            text-align: center;
+            padding: 5px;
+            border: 2px solid blue;
+        }
+        
+        input {
+            border-radius: 5%;
+            padding: 3px;
+            margin-bottom: 5px;
+            width: auto;
+            font-size: 20px;
+        }
+        
+        form {
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+        
+        .input {
+            background-color: blue;
+            border-radius: 5px;
+            border: 2px solid black;
+            transition: 0.5s;
+        }
+        
+        .input:hover {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>teachers</h1>
+
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Your type..">
+
+    <table id="myTable" border="1px" width="100%" height="auto">
+        <tr>
+            <th>serial_num</th>
+            <th>name</th>
+            <th>subject</th>
+            
+          
+        </tr>
+
+
+        <%data.forEach((teacher) => {%>
+
+            <tr>
+                <td>
+                    <%=teacher.serial_num%>
+                </td>
+                <td>
+                    <%=teacher.name%>
+                </td>
+                <td>
+                    <%=teacher.subject%>
+                </td>
+                
+              
+            </tr>
+            <%})%>
+
+    </table>
+    <form action="/teacher" method="POST">
+        <input class="input" type="submit" name="update_teacher" value="REMOVE_TEACHER">
+        <input class="input" type="submit" name="update_teacher" value="ADD_TEACHER">
+    </form>
+</body>
+
+</html>
+
+<script>
+    function myFunction() {
+        var filter = event.target.value.toUpperCase();
+        var rows = document.querySelector("#myTable tbody").rows;
+
+        for (var i = 0; i < rows.length; i++) {
+            var firstCol = rows[i].cells[0].textContent.toUpperCase();
+            var secondCol = rows[i].cells[1].textContent.toUpperCase();
+            var thirdCol = rows[i].cells[2].textContent.toUpperCase();
+            var fourthCol = rows[i].cells[3].textContent.toUpperCase();
+            var fifthCol = rows[i].cells[4].textContent.toUpperCase();
+            if (firstCol.indexOf(filter) > -1 || secondCol.indexOf(filter) > -1 || thirdCol.indexOf(filter) > -1 || fourthCol.indexOf(filter) > -1 || fifthCol.indexOf(filter) > -1) {
+                rows[i].style.display = "";
+            } else {
+                rows[i].style.display = "none";
+            }
+        }
+    }
+</script>
